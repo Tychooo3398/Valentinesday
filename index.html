@@ -5,7 +5,6 @@
 <title>For You ❤️</title>
 
 <style>
-
 body{
     margin:0;
     height:100vh;
@@ -20,7 +19,7 @@ body{
 
 .container{
     background:white;
-    padding:40px;
+    padding:30px 40px;
     border-radius:20px;
     box-shadow:0 10px 30px rgba(0,0,0,0.2);
     max-width:520px;
@@ -30,11 +29,12 @@ button{
     background:#ff4d6d;
     border:none;
     color:white;
-    padding:15px 25px;
-    font-size:18px;
+    padding:12px 20px;
+    font-size:16px;
     border-radius:12px;
     cursor:pointer;
     transition:0.3s;
+    margin-top:10px;
 }
 
 button:hover{
@@ -69,6 +69,12 @@ img{
     }
 }
 
+input{
+    padding:5px;
+    border-radius:5px;
+    border:1px solid #ccc;
+    margin:5px 0;
+}
 </style>
 </head>
 
@@ -80,64 +86,82 @@ img{
 <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
 
 <h1>⚠️ Warning</h1>
-<p>This website contains a dangerously high amount of love.</p>
+<p>This website contains a dangerously high amount of love ❤️</p>
 
-<button onclick="reveal()">TIKLAMA ❤️</button>
+<button onclick="reveal()">DO NOT CLICK ❤️</button>
 
 <div id="message" class="hidden">
 
+    <!-- Celebration GIF -->
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+
     <h2>Well… I warned you 😌</h2>
-    
+
+    <p>
+    Since you came into my life,<br>
+    everything feels funnier,<br>
+    brighter,<br>
+    and a lot less boring.
+    </p>
+
     <p>
     I made this website for one simple reason:<br>
-    to see one of the wonder of the world:<br>
-    <strong>your smile.</strong>
+    <strong>to see you smile.</strong>
+    </p>
+
+    <p>
+    Out of billions of people on this planet,<br>
+    somehow I got unbelievably lucky and found you.  
+    Seni seviyorum ❤️
     </p>
 
     <h2>Happy Valentine's Day ❤️</h2>
 
-     <p>
-    Thanks to be in my life babe, you make me the most luckiest man in the world ❤️<br>
-    </p>
-
-     <p>
-    Seni Seviyorum ❤️<br>
-    </p>
-    
     <p>
-    Let's plan our special date! Pick a day and time: 
+    PS: You are officially stuck with me 😘
     </p>
 
-    <!-- Formulaire pour choisir date et heure -->
+    <!-- Date picker for your date -->
+    <p>Let's plan our special date! Pick a day and time:</p>
     <form id="dateForm" onsubmit="submitDate(event)">
-    <input type="date" id="date" required style="padding:5px; border-radius:5px; border:1px solid #ccc;">
-    <input type="time" id="time" required style="padding:5px; border-radius:5px; border:1px solid #ccc;">
-    <button type="submit" style="background:#ff4d6d;color:white;padding:8px 15px;border-radius:8px;border:none;cursor:pointer;">Confirm ❤️</button>
+        <input type="date" id="date" required>
+        <input type="time" id="time" required>
+        <button type="submit">Confirm ❤️</button>
     </form>
+    <div id="confirmation" class="hidden" style="margin-top:10px; font-weight:bold; color:#ff4d6d;"></div>
 
-    <!-- Message de confirmation -->
-    <div id="confirmation" class="hidden" style="margin-top:15px; font-weight:bold; color:#ff4d6d;"></div>
-
-    <script>
-    function submitDate(event){
-    event.preventDefault();
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
-
-    if(date && time){
-        const confirmation = document.getElementById('confirmation');
-        confirmation.innerHTML = `Yay! Our date is set for <strong>${date}</strong> at <strong>${time}</strong> 😘`;
-        confirmation.classList.remove('hidden');
-    }
-}
-</script>
+    <!-- Gift ticket -->
+    <p style="margin-top:20px;">Click your gift 🎁:</p>
+    <div id="gift" onclick="openGift()" style="
+        width:250px;
+        height:120px;
+        background:#ffdfba;
+        border:2px dashed #ff4d6d;
+        border-radius:15px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        cursor:pointer;
+        margin:0 auto;
+        font-weight:bold;
+        color:#ff4d6d;
+        font-size:18px;
+        transition:0.5s;
+    ">
+        🎟️ Surprise Ticket
+    </div>
+    <div id="giftMessage" class="hidden" style="
+        text-align:center;
+        margin-top:15px;
+        font-weight:bold;
+        color:#ff4d6d;
+        font-size:20px;
+    "></div>
 
 </div>
-
 </div>
 
 <script>
-
 function reveal(){
     document.getElementById("message").classList.remove("hidden");
 
@@ -152,36 +176,20 @@ function reveal(){
         document.body.appendChild(heart);
     }
 }
-<p>Click your gift 🎁:</p>
 
-<div id="gift" onclick="openGift()" style="
-    width:250px;
-    height:120px;
-    background:#ffdfba;
-    border:2px dashed #ff4d6d;
-    border-radius:15px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    margin:20px auto;
-    font-weight:bold;
-    color:#ff4d6d;
-    font-size:18px;
-    transition:0.3s;
-">
-    🎟️ Surprise Ticket
-</div>
+// Date picker
+function submitDate(event){
+    event.preventDefault();
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    if(date && time){
+        const confirmation = document.getElementById('confirmation');
+        confirmation.innerHTML = `Yay! Our date is set for <strong>${date}</strong> at <strong>${time}</strong> 😘`;
+        confirmation.classList.remove("hidden");
+    }
+}
 
-<div id="giftMessage" class="hidden" style="
-    text-align:center;
-    margin-top:15px;
-    font-weight:bold;
-    color:#ff4d6d;
-    font-size:20px;
-"></div>
-
-<script>
+// Gift ticket
 function openGift(){
     const gift = document.getElementById('gift');
     gift.style.transform = "rotateY(180deg)";
@@ -194,7 +202,6 @@ function openGift(){
         msg.classList.remove("hidden");
     }, 600);
 }
-</script>
 </script>
 
 </body>

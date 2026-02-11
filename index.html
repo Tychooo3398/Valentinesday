@@ -154,18 +154,6 @@ function reveal(){
     }
 }
 
-// Date picker
-function submitDate(event){
-    event.preventDefault();
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
-    if(date && time){
-        const confirmation = document.getElementById('confirmation');
-        confirmation.innerHTML = `Yay! Our date is set for <strong>${date}</strong> at <strong>${time}</strong> 😘`;
-        confirmation.classList.remove("hidden");
-    }
-}
-
 // Gift ticket
 function openGift(){
     const gift = document.getElementById('gift');
@@ -175,7 +163,7 @@ function openGift(){
     
     setTimeout(()=>{
         const msg = document.getElementById('giftMessage');
-        msg.innerHTML = "You just won a <strong>romantic weekend together ❤️</strong>!";
+        msg.innerHTML = "<strong>romantic weekend together ❤️</strong>!";
         msg.classList.remove("hidden");
     }, 600);
 }

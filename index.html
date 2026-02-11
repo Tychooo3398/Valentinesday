@@ -152,7 +152,49 @@ function reveal(){
         document.body.appendChild(heart);
     }
 }
+<p>Click your gift 🎁:</p>
 
+<div id="gift" onclick="openGift()" style="
+    width:250px;
+    height:120px;
+    background:#ffdfba;
+    border:2px dashed #ff4d6d;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    margin:20px auto;
+    font-weight:bold;
+    color:#ff4d6d;
+    font-size:18px;
+    transition:0.3s;
+">
+    🎟️ Surprise Ticket
+</div>
+
+<div id="giftMessage" class="hidden" style="
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+    color:#ff4d6d;
+    font-size:20px;
+"></div>
+
+<script>
+function openGift(){
+    const gift = document.getElementById('gift');
+    gift.style.transform = "rotateY(180deg)";
+    gift.style.background = "#fff0f5";
+    gift.innerHTML = "💌";
+    
+    setTimeout(()=>{
+        const msg = document.getElementById('giftMessage');
+        msg.innerHTML = "You just won a <strong>romantic weekend together ❤️</strong>!";
+        msg.classList.remove("hidden");
+    }, 600);
+}
+</script>
 </script>
 
 </body>

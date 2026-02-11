@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fecfef);
+    font-family:Arial, sans-serif;
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    max-width:520px;
+}
+
+button{
+    background:#ff4d6d;
+    border:none;
+    color:white;
+    padding:15px 25px;
+    font-size:18px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.hidden{
+    display:none;
+}
+
+img{
+    width:220px;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    font-size:20px;
+    animation:fall 4s linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-10vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Cute intro GIF -->
+<img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+
+<h1>⚠️ Warning</h1>
+<p>This website contains a dangerously high amount of love.</p>
+
+<button onclick="reveal()">DO NOT CLICK ❤️</button>
+
+<div id="message" class="hidden">
+
+    <!-- Celebration GIF -->
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+
+    <h2>Well… I warned you 😌</h2>
+
+    <p>
+    Since you came into my life,<br>
+    everything feels funnier,<br>
+    brighter,<br>
+    and a lot less boring.
+    </p>
+
+    <p>
+    I made this website for one simple reason:<br>
+    <strong>to see you smile.</strong>
+    </p>
+
+    <p>
+    Out of billions of people on this planet,<br>
+    somehow I got unbelievably lucky and found you.
+    </p>
+
+    <h2>Happy Valentine's Day ❤️</h2>
+
+    <p>
+    PS: You are officially stuck with me 😘
+    </p>
+
+</div>
+
+</div>
+
+<script>
+
+function reveal(){
+    document.getElementById("message").classList.remove("hidden");
+
+    // heart rain
+    for(let i=0;i<50;i++){
+        let heart=document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.fontSize=(Math.random()*20+10)+"px";
+        heart.style.animationDuration=(Math.random()*3+2)+"s";
+        document.body.appendChild(heart);
+    }
+}
+
+</script>
+
+</body>
+</html>
